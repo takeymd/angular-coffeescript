@@ -1,0 +1,99 @@
+<div id="dashboard-app-list" class="container">
+  <h2 class="section-title">
+    My Apps
+  </h2>
+
+  <!-- Loader -->
+  <mno-loader ng-if="isLoading" class="align-center apps"></mno-loader>
+
+  <div ng-if="!isLoading">
+    <div class='row'>
+      <div ng-repeat="app in apps" class="col-md-3">
+        <div class='app-dashboard'>
+          <div class="options"><i class="fa" ng-class="helper.isLaunchHidden(app) ? 'fa-chain-broken' : 'fa-check'"></i></div>
+          <div class='connection-status' ng-class="helper.isLaunchHidden(app) ? 'disconnected' : 'connected'">
+            {{ helper.isLaunchHidden(app) ? 'Not Connected' : 'Connected' }}
+          </div>
+          <br>
+          <img class="app-logo" ng-src="{{app.logo}}">
+
+          <div class="top-buffer-1" ng-hide="helper.isLaunchHidden(app)" ng-switch="app.stack">
+            <!-- Cube App -->
+            <a ng-switch-when="cube" ng-href="{{helper.appActionUrl(app)}}" target="_blank" class="btn btn-warning">Launch App</a>
+            <!-- Cloud & Connecter App - Open Exit modal -->
+            <a ng-switch-default ng-click="openTermsModal('Launch', helper.appActionUrl(app))" class="btn btn-warning">Launch App</a>
+          </div>
+          <div class="top-buffer-1">
+            <button ng-show="helper.canDeleteApp()" ng-click="openAppDeletionModal(app)" class="btn btn-danger">Remove App</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add App Card -->
+      <div class='col-md-3'>
+        <div class='app-dashboard add-app'>
+          <a ng-click="scrollToMarketplace()">
+            <div class="fa fa-plus-circle"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top-buffer-2">
+      <h3>Adding New Apps</h3>
+      <p>To help you add new applications to your 'My Apps' page, you can filter through available apps below by categories.
+        Select a category below to refine your selection of recommended business applications.</p>
+    </div>
+
+    <!-------------------------------------->
+    <!--        Marketplace Content       -->
+    <!-------------------------------------->
+    <div id="marketplace" class="marketplace-list top-buffer-2 col-sm-12" ng-show="!marketplace.loading">
+      <!-- Header -->
+      <div class="row header">
+        <div class="col-sm-3">
+          <h2>Refine by</h2>
+        </div>
+        <div class="col-sm-3 col-sm-offset-6">
+          <div class="input-group" id="search-field">
+            <span class="glyphicon glyphicon-search input-group-addon" id="sizing-addon1" aria-hidden="true"></span>
+            <input type="text" class="form-control" ng-model='marketplace.searchAppsTerm' placeholder="Search" ng-change="marketplace.selectedCategory = ''" aria-describedby="sizing-addon1">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="marketplace-categories" class="col-sm-3">
+          <div ng-repeat="category in ::marketplace.categories">
+            <h5 class="category-title">{{::category}}</h5>
+            <input type="radio" class="pull-right" ng-model="marketplace.selectedCategory" ng-value="category" ng-change="marketplace.searchAppsTerm = ''" ng-click="uncheck($event)">
+          </div>
+        </div>
+        <div id="apps-container" class="col-sm-9">
+          <!-- Search result -->
+          <div id="search-apps" class="row" ng-show="showSearch()">
+            <h2 class="title">Search results</h2>
+            <!-- App Cards -->
+            <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="app in marketplace.apps | filter:searchAppFilter">
+              <a href="" ng-click="appClick(app)">
+                <app-card app="app" class="app-card" data-ribbon="Coming soon" ng-class="{ 'coming-soon-ribbon': app.is_coming_soon }" />
+              </a>
+            </div>
+          </div>
+          <!-- Marketplace -->
+          <div id="marketplace-apps" class="row" ng-show="showMarketplace()">
+            <h2 class="title" ng-show="showAllAppsTitle()">All apps</h2>
+            <div class="category-row row" ng-repeat="currentCategory in ::marketplace.categories" ng-show="showCategory(currentCategory)">
+              <h3 class="subtitle">{{::currentCategory}}</h3>
+              <!-- App Cards -->
+              <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="app in getAppsByCategory(currentCategory)">
+                <a href="" ng-click="appClick(app)">
+                  <app-card app="app" class="app-card" data-ribbon="Coming soon" ng-class="{ 'coming-soon-ribbon': app.is_coming_soon }" />
+                </a>
+              </div>
+            </div>
+          </div><!-- end marketplace-apps -->
+        </div>
+      </div>
+    </div>
+    <div class="top-buffer-1" dashboard-bootstrap-wizard='true' ng-show='helper.displayBootstrapWizard()'></div>
+  </div>
+</div>

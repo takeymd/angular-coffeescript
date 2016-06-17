@@ -1,0 +1,46 @@
+mno-loader {
+  display: block;
+
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: @dashboard-loader-color;
+
+    .loader-icon {
+      @dashboard-loader-icon();
+    }
+
+    .background-layer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: grey;
+      opacity: 0.6;
+    }
+  }
+
+  &.apps {
+    .loading {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      margin: auto;
+      
+      .loader-icon {
+        font-size: 250px;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.loader-content {
+  position: relative;
+}

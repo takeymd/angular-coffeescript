@@ -1,0 +1,164 @@
+.nav.navbar-nav ul.dropdown-menu {
+  background-color: @decorator-main-color;
+
+  li a.content {
+    font-weight: 300;
+    font-size: 16px;
+    color: @text-inverse-color;
+    background-color: @decorator-main-color;
+
+    &:hover {
+      color: @decorator-inverse-color;
+    }
+  }
+}
+
+dashboard-menu {
+  /*-----------------------------------------------------------------------*/
+  /*                         Mobile menu                                   */
+  /*-----------------------------------------------------------------------*/
+  .navbar {
+    .navbar-nav {
+      &.navbar-right:last-child {
+        margin-right:10px;
+      }
+
+      li.active {
+        .navbar-arrow {
+          position:absolute;
+          margin-top:60px;
+          width: 0;
+          height: 0;
+          border-left: 27px solid transparent;
+          border-right: 27px solid transparent;
+          margin-left:50%-27px;
+          border-bottom: 20px solid @elem-cozy-color;
+        }
+      }
+
+      ul.nav.navbar-nav {
+        text-transform:uppercase;
+        a {
+          font-size:@normal;
+        }
+      }
+
+      ul.nav.navbar-nav.navbar-right {
+        button {
+          margin-top: ((@navbar-height - @line-height-computed) / 2) - 18;
+        }
+
+        a {
+          text-transform:none;
+        }
+      }
+    }
+  }
+
+  .navbar ul.nav.navbar-nav > li a {
+    line-height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .navbar ul.nav.navbar-nav > li a > i {
+    display: none;
+  }
+
+  .navbar ul.nav.navbar-nav .user-account.dropdown > a {
+    font-weight: bold;
+  }
+
+  .navbar ul.nav.navbar-nav > li .caret {
+    margin-left: 10px;
+    border-top: 8px solid;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+  }
+
+  /*-----------------------------------------------------------------------*/
+  /*                         Dashboard Left Navbar                         */
+  /*-----------------------------------------------------------------------*/
+  .menu {
+
+    a:hover { text-decoration: none; }
+
+    // Dashboard Button > Active State
+    .dashboard-button.active, .dashboard-button.active:hover {
+      color: @dashboard-side-menu-link-active-color;
+      background-color: @dashboard-side-menu-link-active-bg-color;
+    }
+
+    // Dashboard Button Content > Active State
+    .dashboard-button.active .content, .dashboard-button.active:hover .content {
+      color: @dashboard-side-menu-link-active-color;
+      background-color: @dashboard-side-menu-link-active-bg-color;
+    }
+
+    // Dashboard Button Content > Normal State
+    .dashboard-button,
+    .dashboard-button .content {
+      color: @dashboard-side-menu-link-color;
+      background-color: @dashboard-side-menu-link-bg-color;
+    }
+
+    // Dashboard Button Content > Normal State Hover
+    .dashboard-button:hover, .dashboard-button:hover .content {
+      color: @dashboard-side-menu-link-hover-color;
+      background-color: @dashboard-side-menu-link-hover-bg-color;
+    }
+
+    // Vertical menu
+    &.horizontal {
+      //@dashboard-side-menu-horizontal();
+      z-index:100;
+      width: 100%;
+      overflow: visible;
+
+      // Side menu brand logo
+      .brand-logo {
+        height: 70px;
+        background-repeat: no-repeat;
+        background-image: url(@dashboard-side-menu-brand-logo-img);
+        background-size: 100%;
+        @dashboard-side-menu-brand-logo();
+      }
+      .brand-logo.expanded {
+        @dashboard-side-menu-brand-logo-expanded();
+      }
+
+      // Dashboard Button
+      .dashboard-button {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      // Dashboard Buttons > Links
+      .dashboard-button a {
+        padding: 10px;
+        display: block;
+        text-decoration: none;
+        min-width: 100px;
+      }
+
+      ul.nav.navbar-nav .dropdown > a {
+        color: @dashboard-side-menu-link-color;
+        cursor: pointer;
+      }
+
+      .nav .open > a,
+      .nav .open > a:hover,
+      .nav .open > a:focus,
+      ul.nav.navbar-nav .dropdown > a:hover,
+      ul.nav.navbar-nav .dropdown > a:active,
+      ul.nav.navbar-nav .dropdown > a:focus {
+        color: @dashboard-side-menu-link-color;
+        background-color: @dashboard-side-menu-bg-color;
+      }
+    }
+
+    background-color: @dashboard-side-menu-bg-color;
+  }
+}

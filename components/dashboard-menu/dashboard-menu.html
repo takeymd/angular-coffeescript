@@ -1,0 +1,70 @@
+<nav class="navbar menu horizontal">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#maestrano-dashboard-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="brand-logo"></div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="maestrano-dashboard-navbar-collapse" ng-init="showLoanWidget=false">
+      <ul class="nav navbar-nav">
+        <li>
+          <div class="dashboard-button" ui-sref-active="active">
+            <a ui-sref="home.impac" class="content">
+              <div>My Dashboards</div>
+            </a>
+          </div>
+        </li>
+        <li ng-if="(getCurrentUserAdminRole()!='banker')">
+          <div class="dashboard-button" ui-sref-active="active">
+            <a ui-sref="home.apps" class="content">
+              <div>My Apps</div>
+            </a>
+          </div>
+        </li>
+        <li ng-if="(getCurrentUserAdminRole()=='banker')">
+          <div class="dashboard-button" ui-sref-active="active">
+            <a ui-sref="home.customers" class="content">
+              <div>My Customers</div>
+            </a>
+          </div>
+        </li>
+        <li>
+          <div class="dashboard-button" ui-sref-active="active">
+            <a ui-sref="home.support" class="content">
+              <div>Support</div>
+            </a>
+          </div>
+        </li>
+      </ul>
+
+      <!-------------------------->
+      <!--     Top Right Menu   -->
+      <!-------------------------->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="user-account dropdown" dropdown keyboard-nav>
+          <a id="dLabel" href="" dropdown-toggle>
+            <div class="picture"></div>
+            {{ selectBox.user.name }} {{ selectBox.user.surname }}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li>
+              <a ui-sref="home.settings" class="content">
+                <div>Settings</div>
+              </a>
+              <a ui-sref="logout" class="content" data-method='delete'>
+                <div>Sign Out</div>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

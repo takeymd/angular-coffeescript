@@ -1,0 +1,102 @@
+<div class="dashboard-marketplace-app container">
+
+    <!-- Loader -->
+    <mno-loader ng-if="vm.isLoading" class="align-center"></mno-loader>
+
+    <div ng-if="!vm.isLoading">
+      <!-- Header -->
+      <div class="row show-header top-buffer-1">
+        <div class="col-md-12">
+          <a href="#/apps" class="text-muted">
+            <i class="fa fa-chevron-left"></i> Back
+          </a>
+        </div>
+
+        <div class="media col-md-6">
+          <div class="pull-left">
+            <img class="media-object" ng-src="{{vm.app.logo}}" ng-alt="{{vm.app.name}}">
+          </div>
+          <div class="media-body">
+            <h1 class="media-heading">{{vm.app.name}}</h1>
+            <div ng-repeat="category in vm.app.categories">{{category}}</div>
+            <a class="btn btn-warning btn-promo top-buffer-1" ng-click="vm.provisionLink()">
+              Start Now!
+            </a>
+          </div>
+        </div>
+        <ul class="key-benefits col-md-6">
+          <li ng-repeat="benefit in vm.app.key_benefits track by $index">
+            <i class="fa fa-check"></i>
+            {{benefit}}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Content -->
+      <div class="show-content">
+
+        <!-- Description -->
+        <div class="row top-buffer-1">
+          <div class="col-md-12">
+            <div class="well" >
+              <h2>About</h2>
+              <div ng-bind-html="vm.app.description"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pics -->
+        <div class="row">
+          <div class="carousel col-md-12" ng-class="{ 'no-screenshot': vm.app.pictures.length == 0 }">
+            <div ng-if="vm.app.pictures.length == 0" class="well">There is no screenshot.</div>
+            <div ng-if="vm.app.pictures.length != 0" class="well">
+              <uib-carousel active="0" interval="3000" no-wrap="false">
+                <uib-slide ng-repeat="picture in vm.app.pictures" class="screenshot">
+                  <img ng-src="{{picture}}" alt="screenshot">
+                </uib-slide>
+              </uib-carousel>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="row top-buffer-4">
+          <div class="col-md-12">
+            <div class="well" ng-switch="vm.app.pricing_plans">
+              <h2>Price</h2>
+              <ul ng-if="vm.app.pricing_plans.AUD">
+                <li ng-repeat="plan in vm.app.pricing_plans.AUD">
+                  <b>{{plan.name}}</b>: {{plan.description}}<br>
+                  <span>{{plan.currency}} {{plan.price.value}} {{plan.factor}}</span>
+                </li>
+              </ul>
+              <ul ng-if="!vm.app.pricing_plans.AUD && vm.app.pricing_plans.default">
+                <li ng-repeat="plan in vm.app.pricing_plans.default">
+                  <b>{{plan.name}}</b>: {{plan.description}}<br>
+                  <span ng-if="plan.price.value">{{plan.currency}} {{plan.price.value}} {{plan.factor}}</span>
+                  <span ng-if="!plan.price.value">{{plan.currency}} {{plan.price}} {{plan.factor}}</span>
+                </li>
+              </ul>
+              <span ng-if="!vm.app.single_billing" class="text-muted">Note: Credits cannot be used on this app as billing is managed by the third party provider</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonials row -->
+        <div class="row top-buffer-1">
+          <div class="col-md-6" ng-repeat="testimonial in vm.app.testimonials | limitTo:2" ng-show="vm.isTestimonialShown(testimonial)">
+            <div class="ribbon-testimonial ribbon-white">
+              <div class="body">
+                {{ testimonial.text }}
+                <div class="arrow"></div>
+              </div>
+              <div class="from">
+                <div class="name">{{ testimonial.author }}</div>
+                <div class="company">{{ testimonial.company }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

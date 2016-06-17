@@ -1,0 +1,313 @@
+// Use this file to override Twitter Bootstrap variables or define own variables.
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/*                       Design variables                                */
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------*/
+/*                          Fonts & Text                                 */
+/*-----------------------------------------------------------------------*/
+@font-family-sans-serif:             "Corpid Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+@font-family-base:                   @font-family-sans-serif;
+@small:                              11px;
+@normal:                             14px;
+
+/*-----------------------------------------------------------------------*/
+/*                        Public Page Header                             */
+/*-----------------------------------------------------------------------*/
+// Simple top header with brand logo - can be enabled/disabled via styleguide configuration
+@public-page-header-bg-color:        @bg-inverse-color;
+@public-page-header-padding:         10px;
+
+@public-page-header-logo-img:        "mno_enterprise/main-logo-menu.png";
+@public-page-header-logo:            { height: 80px; width: 55px; margin: -50px auto 5px auto; };
+
+/*-----------------------------------------------------------------------*/
+/*                              Login Page                               */
+/*-----------------------------------------------------------------------*/
+@login-bg-color:                     @bg-main-color;
+@login-box-grid-position:            { margin-top: 80px; .make-sm-column(4); .make-sm-column-offset(4); };
+
+@login-box-title-color:              @bg-inverse-color;
+@login-box-title:                    { text-transform: uppercase; };
+@login-box-title-display-box-arrow:  false;
+
+@login-box-bg-color:                  @bg-main-color;
+@login-box-padding:                   20px;
+@login-box-brand-logo-img:            "mno_enterprise/main-logo-inline.png";
+@login-box-brand-logo:                { min-height: 75px; max-width: 135px; max-height: 130px; margin: 17px auto 5px auto; };
+@login-box-btn-login:                 { width: 100%; };
+
+/*-----------------------------------------------------------------------*/
+/*                           Dashboard Layout                            */
+/*-----------------------------------------------------------------------*/
+@dashboard-bg-color:                            @bg-main-color;
+
+@dashboard-section-title-color:                 @text-strong-color;
+@dashboard-section-title-alignment:             left;
+@dashboard-section-title-display-subline:       false;
+
+// Side navbar menu
+//--------------------------------------
+@dashboard-side-menu-padding:                   30px 0px 0px 14px;
+@dashboard-side-menu-bg-color:                  @bg-inverse-color;
+@dashboard-side-menu-horizontal:                { min-width:550px; position: absolute; top: 0; left: 0; width: 100%; padding-left: 10%; padding-right: 10%; };
+
+@dashboard-side-menu-brand-logo-img:            "../images/main-logo-horizontal.png";
+@dashboard-side-menu-brand-logo:                { height: 50px; margin-top: 10px; width: 120px; };
+@dashboard-side-menu-brand-logo-expanded:       { width: 201px; background-size: 119px; };
+
+@dashboard-side-menu-link-color:                @bg-main-color;
+@dashboard-side-menu-link-bg-color:             @bg-inverse-color;
+
+@dashboard-side-menu-link-active-color:         @bg-main-color;
+@dashboard-side-menu-link-active-bg-color:      @decorator-alt-color;
+
+@dashboard-side-menu-link-hover-color:          @decorator-alt-color;
+@dashboard-side-menu-link-hover-bg-color:       @bg-inverse-color;
+
+@_default_style:                                { .fa-2x; margin-top: 6px; margin-left: 2px; color: @dashboard-side-menu-link-color};
+@_default_style_active:                         { @_default_style(); color: @dashboard-side-menu-link-active-color; };
+@dashboard-side-menu-btn-dashboard:             { @_default_style(); };
+@dashboard-side-menu-btn-dashboard-active:      { @_default_style_active(); };
+@dashboard-side-menu-btn-impac:                 { @_default_style(); };
+@dashboard-side-menu-btn-impac-active:          { @_default_style_active(); };
+@dashboard-side-menu-btn-account:               { @_default_style(); margin-left: 5px; };
+@dashboard-side-menu-btn-account-active:        { @_default_style_active(); margin-left: 5px; };
+@dashboard-side-menu-btn-company:               { @_default_style(); };
+@dashboard-side-menu-btn-company-active:        { @_default_style_active(); };
+@dashboard-side-menu-btn-marketplace:           { @_default_style(); margin-left: 5px; };
+@dashboard-side-menu-btn-marketplace-active:    { @_default_style_active(); margin-left: 5px; };
+@dashboard-side-menu-btn-logout:                { @_default_style(); margin-left: 6px; };
+@dashboard-side-menu-btn-logout-active:         { @_default_style_active(); margin-left: 6px; };
+
+// Company select box (top right)
+//--------------------------------------
+@dashboard-cpy-select-bg-color:                 @bg-inverse-intense-color;
+@dashboard-cpy-select-border-radius:            0px;
+@dashboard-cpy-select-padding:                  15px 25px;
+
+@dashboard-cpy-select-header-text-color:        @text-inverse-color;
+@dashboard-cpy-select-header-text-size:         13px;
+
+@dashboard-cpy-select-link-color:               @dashboard-cpy-select-header-text-color;
+
+@dashboard-cpy-select-link-hover-color:         @dashboard-cpy-select-link-color;
+@dashboard-cpy-select-link-hover-bg-color:      lighten(@dashboard-cpy-select-bg-color,10%);
+
+@dashboard-cpy-select-link-create-color:        @decorator-alt-color;
+@dashboard-cpy-select-link-admin-color:         @elem-positive-color;
+
+@dashboard-cpy-select-switch-btn-color:         @dashboard-cpy-select-header-text-color;
+@dashboard-cpy-select-switch-btn-bg-color:      @dashboard-cpy-select-bg-color;
+@dashboard-cpy-select-switch-btn-icon:          { .icon-fa(caret-down); }; //pass a ruleset
+@dashboard-cpy-select-switch-btn-icon-active:   { .icon-fa(caret-up); }; //pass a ruleset
+
+// Loaders
+//--------------------------------------
+@dashboard-loader-color:                        @bg-inverse-color;
+@dashboard-loader-icon:                         { .icon-fa(refresh); .fa-2x; .fa-spin; }; //pass a ruleset
+
+/*-----------------------------------------------------------------------*/
+/*                        Dashboard > Apps Section                       */
+/*-----------------------------------------------------------------------*/
+@dashboard-apps-tile-bg-color:                  @bg-inverse-color;
+@dashboard-apps-tile-text-color:                @text-inverse-color;
+
+@dashboard-apps-tile-logo-border-size:          0px;
+@dashboard-apps-tile-logo-border-color:         @decorator-main-color;
+
+@dashboard-apps-tile-settings-color:            @dashboard-apps-tile-text-color;
+@dashboard-apps-tile-settings-bg-color:         @dashboard-apps-tile-bg-color;
+
+@dashboard-apps-tile-settings-hover-color:      @dashboard-apps-tile-bg-color;
+@dashboard-apps-tile-settings-hover-bg-color:   @dashboard-apps-tile-text-color;
+
+@dashboard-apps-tile-add-color:                 @bg-inverse-color;
+@dashboard-apps-tile-add-bg-color:              @bg-on-bg-inverse-color;
+
+/*-----------------------------------------------------------------------*/
+/*                      Dashboard > Company Section                      */
+/*-----------------------------------------------------------------------*/
+// Tab Heading
+//--------------------------------------
+@dashboard-cpy-tabs-bg-color:                    @decorator-main-color;
+@dashboard-cpy-tabs-text-color:                  @text-inverse-color;
+@dashboard-cpy-tabs-border-radius:               2px;
+
+@dashboard-cpy-tabs-subline-size:                0px;
+@dashboard-cpy-tabs-subline-color:               transparent;
+
+@dashboard-cpy-tabs-active-text-color:           @decorator-alt-color;
+@dashboard-cpy-tabs-active-bg-color:             @bg-inverse-color;
+
+@dashboard-cpy-tabs-hover-text-color:            @dashboard-cpy-tabs-bg-color;
+@dashboard-cpy-tabs-hover-bg-color:              @decorator-alt-color;
+
+// Tab Content
+//--------------------------------------
+@dashboard-cpy-tabcontent-bg-color:              @dashboard-cpy-tabs-bg-color;
+
+// Teams section
+//--------------------------------------
+@dashboard-cpy-teams-matrix-bg-color:            @bg-inverse-color;
+@dashboard-cpy-teams-matrix-border-color:        lighten(@bg-main-color,30%);
+
+// Dashboard
+//--------------------------------------
+@impac-dashboard-padding-top:                   0px;
+@impac-dashboard-margin-left:                   60px;
+
+// Title
+@impac-dashboard-buttons-border-radius:         0px;
+// Tabs
+@impac-tabs-background-color:                   darken(@bg-main-color,3%);
+// Widgets Container
+@impac-placeholder-border:                      none;
+@impac-widgets-container-side-padding:          10px;
+@impac-padding-between-widgets:                 5px;
+@impac-big-widget-size:                         601px;
+@impac-minimum-widget-size:                     275px;
+
+// Widgets container
+@impac-placeholder-border:                      2px dashed @bg-inverse-color;
+@impac-padding-between-widgets:                 12px;
+@impac-minimum-widget-size:                     258px;
+
+// Widgets
+//--------------------------------------
+// Global
+@impac-widget-background-color:                 white;
+@impac-widget-text-color:                       @text-strong-color;
+@impac-widget-border:                           solid 1px #a7a7a8;
+@impac-widget-text-color-medium:                lighten(@impac-widget-text-color,25%);
+@impac-widget-text-color-light:                 lighten(@impac-widget-text-color,70%);
+@impac-widget-borders-color:                    lighten(@impac-widget-text-color-light,10%);
+@impac-widget-link-color:                       @decorator-inverse-color;
+@impac-widget-scrollbar-color:                  black;
+// Title
+@impac-widget-title-bg:                         lighten(@bg-inverse-color,11%);
+@impac-widget-title-text-transform:             none;
+@impac-widget-title-text-size:                  13px;
+@impac-widget-title-text-color:                 @text-inverse-color;
+@impac-widget-title-border:                     none;
+@impac-widget-title-border-radius:              0px 0px 0px 0px;
+@impac-widget-top-buttons-color:                @text-inverse-color;
+// Content
+@impac-widget-content-border-radius:            0px 0px 0px 0px;
+@impac-widget-lines-container-max-height:       222px;
+// Hist Mode Choser
+@impac-widget-hist-text-transform:              none;
+@impac-widget-hist-text-size:                   13px;
+@impac-widget-hist-text-color:                  @text-strong-color;
+
+// Price
+@impac-widget-price-color:                      @impac-widget-text-color;
+@impac-widget-price-positive-color:             @elem-positive-color;
+@impac-widget-price-negative-color:             @elem-cozy-color;
+@impac-widget-currency-color:                   @impac-widget-text-color-light;
+@impac-widget-legend-color:                     lighten(@impac-widget-text-color,30%);
+
+// Edit settings
+@impac-widget-sub-bg-color:                     darken(@impac-widget-background-color,10%);
+@impac-widget-sub-bg-color-light:               lighten(@impac-widget-sub-bg-color,5%);
+
+// Invoices list
+@impac-widget-line-hover-bg:                    lighten(@bg-inverse-color,10%);
+@impac-widget-line-hover-text:                  @text-inverse-color;
+
+// Accounts Comparison
+@impac-big-widget-size:                         581px;
+@impac-big-widget-bottom-padding:               30px;
+@impac-widget-accounts-comparison-lines-container-max-height: 250px;
+
+/*-----------------------------------------------------------------------*/
+/*                 Mno Enterprise > Marketplace Section                  */
+/*-----------------------------------------------------------------------*/
+@dashboard-marketplace-search-text-color:             @bg-inverse-color;
+@dashboard-marketplace-search-border-color:           @bg-inverse-intense-color;
+
+@dashboard-marketplace-tile-bg-color:                 @bg-main-color;
+@dashboard-marketplace-tile-text-color:               @text-strong-color;
+@dashboard-marketplace-tile-img-border-color:         @dashboard-marketplace-tile-bg-color;
+
+@dashboard-marketplace-tile-hover-bg-color:           @decorator-inverse-color;
+@dashboard-marketplace-tile-hover-text-color:         @text-strong-color;
+@dashboard-marketplace-tile-hover-img-border-color:   darken(@decorator-main-color,10%);
+@dashboard-marketplace-tile-hover-arrow-color:        @bg-main-color;
+
+@dashboard-marketplace-show-header-text-color:        @text-strong-color;
+
+@dashboard-marketplace-app-card:                      { display: block; padding: 10px; height: 200px; margin-bottom: 10px; font-weight: 300; text-align: center; };
+
+/*-----------------------------------------------------------------------*/
+/*                     Responsive Table (cell table)                     */
+/*-----------------------------------------------------------------------*/
+@table-cell-row-spacing:               10px;
+@table-cell-row-padding:               3px;
+
+@table-cell-header-text-size:          12px;
+@table-cell-header-text-color:         @text-strong-color;
+@table-cell-header-bg-color:           @bg-main-color;
+@table-cell-header-additional-rule:    { text-transform: uppercase; };
+
+@table-cell-row-text-size:             13px;
+@table-cell-row-odd-bg-color:          @decorator-main-color;
+@table-cell-row-even-bg-color:         @decorator-main-color;
+
+
+/*-----------------------------------------------------------------------*/
+/*                       Twitter Bootstrap colors                        */
+/*-----------------------------------------------------------------------*/
+@brand-success:                  @elem-positive-color;
+@brand-warning:                  @decorator-alt-color;
+@brand-info:                     #0792C3;
+@brand-danger:                   @text-strong-color;
+@brand-primary:                  @text-strong-color;
+
+// TODO: Parametrise me!
+@btn-default-color:              @bg-main-color;
+@btn-default-bg:                 @bg-inverse-intense-color;
+@btn-default-border:             #ccc;
+
+/*-----------------------------------------------------------------------*/
+/*                          Navbar Customization                         */
+/*-----------------------------------------------------------------------*/
+@navbar-inverse-bg:              @bg-inverse-color;
+@navbar-height:                  40px;
+@navbar-inverse-link-color:      @decorator-inverse-color;
+@navbar-border-radius:           0px;
+@navbar-inverse-border:          @bg-inverse-color;
+@navbar-desktop-height:          120px;
+@navbar-inverse-link-active-bg:  @navbar-inverse-bg;
+
+/*-----------------------------------------------------------------------*/
+/*                          Form Customization                           */
+/*-----------------------------------------------------------------------*/
+@input-bg: @bg-on-bg-inverse-color;
+@input-color: @text-strong-color;
+@input-color-placeholder: @input-color;
+
+@input-label-color: lighten(@text-strong-color,46%);
+
+/*-----------------------------------------------------------------------*/
+/*                         Buttons Customization                         */
+/*-----------------------------------------------------------------------*/
+
+// General
+@btn-font-weight:                500;
+
+// Warning
+@btn-warning-color:              #fff;
+
+// Success
+@btn-success-color:              #fff;
+
+/*-----------------------------------------------------------------------*/
+/*                            Footer                                     */
+/*-----------------------------------------------------------------------*/
+
+@footer-bg:                      @bg-on-bg-inverse-color;

@@ -1,0 +1,121 @@
+.dashboard-marketplace-app {
+
+  .show-header .media-object {
+    max-width: 170px;
+    border-radius: 5px;
+    border: solid 1px darken(@bg-main-color, 5%);
+  }
+
+  .show-header .media-body h1 {
+    line-height: 40px;
+    font-size: 24px;
+  }
+
+  .show-header .media-body h2 {
+    line-height: 80px;
+    color: @dashboard-marketplace-show-header-text-color;
+  }
+
+  .show-header .key-benefits {
+    margin-top: 20px;
+
+    li {
+      margin-top: 10px;
+      list-style: none;
+    }
+  }
+
+  .show-content h2 {
+    margin-top: 0px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .show-content .well {
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+  }
+
+  .show-content .carousel img {
+    max-height: 300px;
+    margin: auto;
+  }
+
+  .show-content .carousel .carousel-inner {
+    text-align: center;
+  }
+
+  .show-content .carousel .carousel-control {
+    background: transparent;
+    cursor: pointer;
+    max-height: 300px;
+  }
+
+  .show-content .carousel .carousel-indicators {
+    visibility: hidden;
+  }
+
+  .show-content .carousel .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    margin-left: 0px;
+  }
+
+  @media (min-width: @screen-md-min) {
+    .show-content .carousel { 
+      height: 340px;
+
+      &.no-screenshot {
+        height: auto;
+        margin-bottom: -60px;
+      } 
+    }
+    .show-content .well-details { 
+      height: 340px; 
+    }
+  }
+
+  .show-content ul.app-features {
+    list-style: none;
+    padding-left: 0px;
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  .show-content ul.app-features li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .show-content ul.app-features li > img {
+    margin-right: 5px;
+  }
+
+  .show-content ul.key-benefits {
+    list-style: none;
+    padding-left: 0px;
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  .show-content ul.key-benefits > li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .show-content ul.key-benefits > li > .fa.fa-check {
+    color: @elem-positive-color;
+    margin-right: 5px;
+  }
+
+  .show-content .ribbon-testimonial .body {
+    color: @dashboard-marketplace-tile-text-color;
+  }
+
+  .show-content .ribbon-testimonial .from .name {
+    color: @bg-inverse-color;
+  }
+}

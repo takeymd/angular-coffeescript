@@ -1,0 +1,35 @@
+<div id="customers" class="container">
+  <div class="row customers-header">
+    <div class="col-md-7">
+      <h2 class="section-title">My Customers</h2>
+    </div>
+    <div class="col-md-5 search-container">
+      <input class="md-input" type="text" ng-model="vm.search" placeholder="Filter customers..." tabindex="1" />
+    </div>
+  </div>
+  <div class="row top-buffer-1">
+    <div ng-repeat="customer in vm.getFilteredCustomers()" class="col-md-6" ng-init="active=false">
+      <div class="well" ng-class="{active: vm.active}">
+        <h3>{{customer.name}}</h3>
+
+        <div class="link-container" ng-click="vm.accessDashboard(customer.id)" tabindex="{{$index+2}}" ng-focus="active=true" ng-blur="active=false">
+          <a>> Access dashboards</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Invite a new customer</h2>
+  <div class="row top-buffer-1">
+    <div class="col-md-6" ng-init="active=false">
+      <div class="well invite" ng-class="{active: vm.active}">
+        <form>
+          <input type="email" ng-model="vm.email" placeholder="Enter your customer's email..." tabindex="{{vm.customers.length + 2}}" ng-focus="active=true" ng-blur="active=false" />
+          <button type="submit" class="btn btn-danger" ng-click="vm.sendMail()" tabindex="{{vm.customers.length + 3}}" ng-focus="active=true" ng-blur="active=false" ng-disabled="vm.loading">
+            Send invite
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
